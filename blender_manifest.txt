@@ -20,8 +20,5 @@ license = [
   "SPDX:GPL-3.0-or-later",
 ]
 
-# # Optional: add-ons can list which resources they will require:
-* files (for access of any filesystem operations)
-
 [permissions]
 files = "read blend file names/save file"
