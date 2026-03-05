@@ -7,8 +7,8 @@ tagline = "Save an Incremental Copy without switching files"
 maintainer = "Lurian"
 type = "add-on"
 
-# # Optional: link to documentation, support, source files, etc
-# website = "https://extensions.blender.org/add-ons/my-example-package/"
+# # link to documentation, support, source files, etc
+website = "https://github.com/Lurian-Works/Save_Incremental_Copy_Blender_Addon"
 
 tags = ["Import-Export", "Pipeline"]
 
