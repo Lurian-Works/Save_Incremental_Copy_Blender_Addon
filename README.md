@@ -4,13 +4,12 @@ This is a really simple addon for people who like to stay in the main file and j
 
 ## What it does:
 
-This is a really simple addon which adds a button in the File Menu to save an Incremental Copy without leaving the current file. You can change the Incremental naming in the settings.
+This addon will add a button in the File Menu to save an Incremental Copy, without leaving the current file. You can change the Incremental naming in the settings.
 
 Like on any other button you can assign a hotkey by right clicking on the button.
 
 (Unfortunately i couldn´t figure out how to move the button under “save Copy” so if anyone knows how to do that i would really appreciate a short message.)
 
-![Screenshot 2026-03-05 194615.png](Documentation_images/Screenshot_2026-03-05_194615.png)
 
 ## Preferences / Changing the Naming Convention
 
