@@ -7,16 +7,18 @@ tagline = "Save an Incremental Copy without switching files"
 maintainer = "Lurian"
 type = "add-on"
 
+# # link to documentation, support, source files, etc
 website = "https://github.com/Lurian-Works/Save_Incremental_Copy_Blender_Addon"
 
 tags = ["Import-Export", "Pipeline"]
 
-blender_version_min = "5.0.0"
+blender_version_min = "4.2.0"
 
+# License conforming to https://spdx.org/licenses/ (use "SPDX: prefix)
+# https://docs.blender.org/manual/en/dev/advanced/extensions/licenses.html
 license = [
   "SPDX:GPL-3.0-or-later",
 ]
 
 [permissions]
 files = "read blend file names/save file"
-
