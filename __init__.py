@@ -1,15 +1,6 @@
-bl_info = {
-    "name": "Save Incremental Copy (Simple)",
-    "blender": (5, 0, 0),
-    "category": "System",
-}
-
-# Import Blender Python API
 import bpy
-
 # Import OS functions for file handling
 import os
-
 # Import regex module for detecting trailing numbers
 import re
 
@@ -31,8 +22,8 @@ class IncrementalSavePreferences(AddonPreferences):
     padding: IntProperty(
         name="Number Padding",
         description="Number of digits for the incremental number (0 = no padding)",
-        default=0,
-        min=0,
+        default=1,
+        min=1,
         max=6
     )
 
@@ -47,16 +38,9 @@ class IncrementalSavePreferences(AddonPreferences):
 # Define the operator that saves an incremental copy
 class WM_OT_save_incremental_copy(bpy.types.Operator):
 
-    # Unique identifier for the operator
     bl_idname = "wm.save_incremental_copy_simple"
-
-    # Name shown in the UI
     bl_label = "Save Incremental Copy"
-
-    # Description shown in tooltips
     bl_description = "Save an incremental copy without switching files"
-
-    # Enable undo support
     bl_options = {'REGISTER'}
 
 
@@ -115,42 +99,32 @@ class WM_OT_save_incremental_copy(bpy.types.Operator):
                 # Convert the captured number to integer
                 numbers.append(int(m.group(1)))
 
-        # Determine the next incremental number
+
         next_number = max(numbers) + 1 if numbers else 1
 
         # Apply number padding if enabled
-        if padding > 0:
+        if padding > 1:
             number_str = str(next_number).zfill(padding)
         else:
             number_str = str(next_number)
 
-        # Construct the new incremental filename
+        # Construct the new incremental filename and path
         new_filename = f"{name_only}{separator}{number_str}{ext}"
-
-        # Create the full path for the new file
         new_filepath = os.path.join(directory, new_filename)
 
-        # Save a copy without switching the current file
+
         bpy.ops.wm.save_as_mainfile(filepath=new_filepath, copy=True)
 
-        # Report success in Blender status bar
         self.report({'INFO'}, f"Saved incremental copy: {new_filename}")
-
-        # Finish the operator
+        
         return {'FINISHED'}
 
 
-# Function to add the operator to the File menu
 def menu_func(self, context):
-
-    # Add a separator line in the menu
-    self.layout.separator()
-
-    # Add the operator button
+    
     self.layout.operator(WM_OT_save_incremental_copy.bl_idname)
 
 
-# Register classes and menu entry
 def register():
 
     bpy.utils.register_class(IncrementalSavePreferences)
@@ -160,15 +134,13 @@ def register():
     bpy.types.TOPBAR_MT_file.append(menu_func)
 
 
-# Unregister classes and remove menu entry
 def unregister():
 
     bpy.types.TOPBAR_MT_file.remove(menu_func)
 
     bpy.utils.unregister_class(WM_OT_save_incremental_copy)
     bpy.utils.unregister_class(IncrementalSavePreferences)
+    
 
-
-# Run register function when addon is enabled
 if __name__ == "__main__":
     register()
