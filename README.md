@@ -15,7 +15,7 @@ Like on any other button you can assign a hotkey by right clicking on the button
 
 By default the naming convention is Blenders Deafult. You can change it in the Addon-Preferences.
 
-Please note that changing the naming convention will lead to ignoring all files saved with another naming convention (which can be useful sometimes).  This means also that blenders built in “save incremental” button creates incrementals which don´t match the custom naming convention. 
+Please note that changing the naming convention will lead to ignoring all files saved with another naming convention (which can be useful sometimes). Changing the naming means also that blenders built in “save incremental” button creates incrementals which don´t match the custom naming convention. 
 
 It is best to use just one of those buttons for each project/folder.
 
